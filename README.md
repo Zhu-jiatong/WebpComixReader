@@ -1,5 +1,5 @@
 # WebpComixReader
-A batch file for reading webp images <br/>
+A batch file for reading *.webp images <br/>
 Features:
 <ol>
   <li>Display all *.webp images in one page;</li>
