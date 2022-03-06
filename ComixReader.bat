@@ -4,7 +4,7 @@ set /a k+=1
 echo ^<body^>>Comix.html
 set /a k+=1
 echo ^<div style="text-align: center; width: 100%%% %; height: 100%%% %; display: inline-block;"^>>>Comix.html
-for %%a in (*.webp) do (
+for %%a in (*.webp *.png *.jpg *.jpeg *.svg) do (
     set /a i+=1
     set /a j=i+1
     set /a k+=1
