@@ -12,7 +12,7 @@ for %%a in (*.webp *.png *.jpg *.jpeg *.svg) do (
     set /a k+=1
     echo ^<a href="#!j!"^>>>Comix.html
     set /a k+=1
-    echo ^<img src="%%a" style="max-height: 100%%% %; max-width: 100%%% %;"^>>>Comix.html
+    echo ^<img src="%%a" loading="lazy" style="max-height: 100%%% %; max-width: 100%%% %;"^>>>Comix.html
     set /a k+=1
     echo ^</a^>>>Comix.html
     set /a k+=1
