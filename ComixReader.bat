@@ -12,7 +12,9 @@ for %%a in (*.webp *.png *.jpg *.jpeg *.svg) do (
     set /a k+=1
     echo ^<a href="#!j!"^>>>Comix.html
     set /a k+=1
-    echo ^<img src="%%a" loading="lazy" style="max-height: 100%%% %; max-width: 100%%% %;"^>>>Comix.html
+    if !i!==1 (
+        echo ^<img id="%%a" src="%%a" style="max-height: 100%%% %; max-width: 100%%% %;"^>>>Comix.html
+    ) else echo ^<img id="%%a" style="max-height: 100%%% %; max-width: 100%%% %;"^>>>Comix.html
     set /a k+=1
     echo ^</a^>>>Comix.html
     set /a k+=1
@@ -25,9 +27,21 @@ for /f "tokens=1 delims=    " %%a in (Comix.html) do (
         echo ^<a href="#1"^>>>temp.txt
     ) else echo %%a>>temp.txt
 )
+
 del Comix.html
 ren temp.txt Comix.html
 echo ^</div^>>>Comix.html
 echo ^</body^>>>Comix.html
+
+echo ^<script^>>>Comix.html
+echo function _(el) {return document.getElementById(el);}>>Comix.html
+for %%a in (*.webp *.png *.jpg *.jpeg *.svg) do (
+    set /a js+=1
+    echo {_^("%%a"^).src = "%%a";};>>Comix.html
+    if !js! neq !i! (
+        echo _^("%%a"^).onload = function ^(^) >>Comix.html
+    )
+ )
+echo ^</script^>>>Comix.html
 start Comix.html
 exit

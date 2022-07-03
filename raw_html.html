@@ -1,0 +1,21 @@
+<body>
+    <div id="img_field">
+        <img src='1.webp' id='01.webp'>
+        <img id='02.webp'>
+        <img id='03.webp'>
+    </div>
+</body>
+<script>
+    function _(el) {
+        return document.getElementById(el);
+    }
+
+    _("01.webp").onload = function () {
+        _("02.webp").src = "2.webp";
+    };
+
+    _("02.webp").onload = function () {
+        _("03.webp").src = "3.webp";
+    };
+
+</script>
